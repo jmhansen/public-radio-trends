@@ -1,0 +1,9 @@
+{
+  "name": "public-radio-content",
+  "packageManager": "yarn@3.5.1",
+  "dependencies": {
+    "pg": "^8.11.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.31.1"
+  }
+}
