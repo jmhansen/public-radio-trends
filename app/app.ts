@@ -1,11 +1,23 @@
-const express = require('express')
-const app = express()
-const port = 3000
+import express from 'express';
+import {publicApiRoutes} from './routes';
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+class App {
+  public server;
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  constructor() {
+    this.server = express();
+
+    this.middlewares();
+    this.routes();
+  }
+
+  middlewares() {
+    this.server.use(express.json());
+  }
+
+  routes() {
+    this.server.use('/api', publicApiRoutes);
+  }
+}
+
+export default new App().server;
